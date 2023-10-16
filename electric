@@ -1,0 +1,73 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+df = pd.read_csv(r'D:\Materials\FA2023_AI1807\ADY201\new\Electric_Vehicle_Population_Data.csv')
+
+# Distribution of Manufacturer
+df_by_type_total = df['Make'].value_counts().sort_values()
+
+# Plotting
+plt.pie(df_by_type_total.values, labels=df_by_type_total.index, autopct='%1.1f%%')
+plt.axis('equal')
+plt.title('Distribution of models by Manufacturer in total')
+plt.show()
+
+df['Electric Range'] = pd.to_numeric(df['Electric Range'], errors='coerce')
+
+
+avg_range_by_model = df.groupby('Model')['Electric Range'].mean().nlargest(10)
+
+
+plt.figure(figsize=(12, 6))
+avg_range_by_model.plot(kind='bar', color='green')
+
+# Labels and title
+plt.title("Top 10 Models with Highest Average Electric Range")
+plt.xlabel("Model")
+plt.ylabel("Average Electric Range (miles)")
+plt.show()
+
+df_by_eligibility = df['Electric Vehicle Type'].value_counts()
+
+plt.figure(figsize=(8, 8))
+
+# Create a pie chart with a hole in the center
+plt.pie(df_by_eligibility.values, labels=df_by_eligibility.index, autopct='%1.1f%%', startangle=90, wedgeprops=dict(width=0.4))
+
+# Draw a white circle in the center to create the donut chart
+centre_circle = plt.Circle((0, 0), 0.3, color='white', linewidth=0)
+fig = plt.gcf()
+fig.gca().add_artist(centre_circle)
+
+plt.title('Distribution of electric cars by Electric Vehicle Type')
+plt.show()
+import matplotlib.pyplot as plt
+import seaborn as sns
+df = pd.read_csv(path)
+df
+
+df_by_year = df['Model Year'].value_counts().sort_index()  # Sort by index (years)
+
+plt.figure(figsize=(10, 6))
+plt.plot(df_by_year.index, df_by_year.values, color='red')
+
+plt.xlabel('Year')
+plt.ylabel('Number of Cars')
+plt.title('Distribution of electric cars by year')
+plt.show()
+
+df_by_eligibility = df['Clean Alternative Fuel Vehicle (CAFV) Eligibility'].value_counts()
+
+plt.figure(figsize=(8, 8))
+
+# Create a pie chart with a hole in the center
+plt.pie(df_by_eligibility.values, labels=df_by_eligibility.index, autopct='%1.1f%%', startangle=90, wedgeprops=dict(width=0.4))
+
+# Draw a white circle in the center to create the donut chart
+centre_circle = plt.Circle((0, 0), 0.3, color='white', linewidth=0)
+fig = plt.gcf()
+fig.gca().add_artist(centre_circle)
+
+plt.title('Distribution of electric cars by CAFV Eligibility')
+plt.show()
