@@ -1,0 +1,52 @@
+# Exercise Notebook
+
+## Introduction
+This notebook covers various exercises related to markdown cells and basic code snippets.
+
+## Data Science Languages
+- Python
+- RS
+- Julia
+
+## Data Science Libraries
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+
+## Data Science Tools
+
+| Tool         | Description                 |
+|--------------|-----------------------------|
+| Jupyter      | Interactive computing      |
+| VS Code      | Integrated development     |
+| TensorFlow   | Machine learning framework |
+| PyTorch      | Deep learning framework    |
+| Tableau      | Data visualization         |
+
+## Arithmetic Expression Examples
+In this section, we'll explore examples of arithmetic expressions.
+
+```python
+# Example 1: Multiplication
+result_multiply = 5 * 3
+
+# Example 2: Addition
+result_addition = 10 + 7
+
+## Objectives
+Understand basic Markdown and code cells.
+List common data science languages and libraries.
+Explore arithmetic expressions and basic code snippets.
+
+## Author
+Bao
+
+def minutes_to_hours(minutes):
+    return minutes / 60
+
+# Example usage
+time_in_minutes = 120
+time_in_hours = minutes_to_hours(time_in_minutes)
+print(f"{time_in_minutes} minutes is equal to {time_in_hours} hours.")
